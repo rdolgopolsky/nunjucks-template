@@ -203,7 +203,8 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
 /// @param {String} $message - Message to log
 ///
 @mixin log($message) {
-	@if log($message) {}
+	@if log($message) {
+	}
 }
 
 
@@ -211,7 +212,8 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
 /// Function with no `@return` called next to `@warn` in Sass 3.3
 /// to trigger a compiling error and stop the process.
 ///
-@function noop() {}
+@function noop() {
+}
 
 ///
 /// Determines whether a list of conditions is intercepted by the static breakpoint.
@@ -224,7 +226,8 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
 	$no-media-breakpoint-value: map-get($breakpoints, $im-no-media-breakpoint);
 
 	@if not $no-media-breakpoint-value {
-		@if log('`#{$im-no-media-breakpoint}` is not a valid breakpoint.') {}
+		@if log('`#{$im-no-media-breakpoint}` is not a valid breakpoint.') {
+		}
 	}
 
 	@each $condition in $conditions {
@@ -550,7 +553,8 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
 	} @else if ($im-media-support and length($conditions) > 0) {
 		@media #{unquote(parse-expression(nth($conditions, 1)))} {
 			// Recursive call
-			@include media(slice($conditions, 2)...) {
+			@include media(slice($conditions, 2)
+			...) {
 				@content;
 			}
 		}

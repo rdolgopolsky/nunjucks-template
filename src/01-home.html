@@ -8,10 +8,20 @@ title: Don't forget to change tittle - for this page
 	<div class="wrapper">
 		{% include 'src/template/header.html' %}
 		<main class="main">
-			{# How to use macros #}
-			{{ mac.test({
-				h2: "Just H2",
-				h3: "This is H3"
+
+			{{ mac.headline({
+				title: "Hedaline title",
+				descr: "This is H1 description"
+			}) }}
+
+			{{ mac.headline({
+				h1title: "Headline text 2",
+				descr: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quos."
+			}) }}
+			
+			{{ mac.headline({
+				h1title: "Hedaline title h1",
+				descr: "This is H1 description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam cumque debitis dolore incidunt laborum maxime perspiciatis quos rerum! Deleniti?"
 			}) }}
 
 		</main>

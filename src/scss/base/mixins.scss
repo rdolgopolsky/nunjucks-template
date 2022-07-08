@@ -165,7 +165,7 @@
 		content: "";
 		display: block;
 		width: 100%;
-		padding-top:  56.25%;
+		padding-top: 56.25%;
 	}
 }
 
@@ -236,6 +236,7 @@ $browser-context: 16;
 	}
 	@return round($width-block / $width-container*100%* 100) / 100;
 }
+
 //how to use
 // .block {width: p(1000px, 200px);}
 
@@ -250,3 +251,4 @@ $browser-context: 16;
 	}
 	@return $map;
 }
+

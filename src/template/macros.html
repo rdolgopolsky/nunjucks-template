@@ -4,9 +4,56 @@
 	<h2>{{arr.h2}}</h2>
 	<h3>{{arr.h3}}</h3>
 	{% if arr.h4 %}
-		<h4>{{arr.h4}}</h4>
+	<h4>{{arr.h4}}</h4>
 	{% else %}
-		<h4>You don't added H4</h4>
+	<h4>You don't added H4</h4>
+	{% endif %}
+</div>
+{% endmacro %}
+
+{% macro headline(arr) %}
+<div class="headline">
+
+	{% if arr.h1title %}
+	<h1 class="headline-title">
+		{{arr.h1title}}
+	</h1>
+	{% endif %}
+
+	{% if arr.title %}
+	<h2 class="headline-title">
+		{{arr.title}}
+	</h2>
+	{% endif %}
+
+	{% if arr.h3title %}
+	<h3 class="headline-title">
+		{{arr.h3title}}
+	</h3>
+	{% endif %}
+
+	{% if arr.h4title %}
+	<h4 class="headline-title">
+		{{arr.h4title}}
+	</h4>
+	{% endif %}
+
+	{% if arr.h5title %}
+	<h5 class="headline-title">
+		{{arr.h5title}}
+	</h5>
+	{% endif %}
+
+	{% if arr.h6title %}
+	<h6 class="headline-title">
+		{{arr.h6title}}
+	</h6>
+	{% endif %}
+
+	{% if arr.descr %}
+	<div class="headline-description">
+		{{arr.descr}}
+	</div>
 	{% endif %}
 </div>
 {% endmacro %}
