@@ -202,8 +202,8 @@ function processScroll(progressLine) {
 	let docElem = document.documentElement;
 	let docBody = document.body;
 	let scrollTop = docElem['scrollTop'] || docBody['scrollTop'];
-	let scrollBottom = (docElem['scrollHeight'] || docBody['scrollHeight']) - window.innerHeight,
-		scrollPercent = scrollTop / scrollBottom * 100 + '%';
+	let scrollBottom = (docElem['scrollHeight'] || docBody['scrollHeight']) - window.innerHeight;
+	let scrollPercent = scrollTop / scrollBottom * 100 + '%';
 	progressLine.style.width = scrollPercent;
 }
 
