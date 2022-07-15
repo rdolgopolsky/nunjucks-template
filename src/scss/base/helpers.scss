@@ -46,3 +46,82 @@
 	top: 50%;
 	transform: translate(-50%, -50%);
 }
+
+
+$sides: (top, bottom, left, right);
+
+@for $i from 0 through 50 {
+	@each $side in $sides {
+		._m#{str-slice($side, 0, 1)}-#{$i} {
+			margin-#{$side}: #{$i}rem !important;
+		}
+		._p#{str-slice($side, 0, 1)}-#{$i} {
+			padding-#{$side}: #{$i}rem !important;
+		}
+	}
+
+	._py-#{$i} {
+		padding-top: #{$i}rem !important;
+		padding-bottom: #{$i}rem !important;
+	}
+
+	._px-#{$i} {
+		padding-left: #{$i}rem !important;
+		padding-right: #{$i}rem !important;
+	}
+}
+
+@for $i from 0 through 50 {
+	@each $side in $sides {
+		@include media(">=tablet") {
+			._m#{str-slice($side, 0, 1)}-md-#{$i} {
+				margin-#{$side}: #{$i}rem !important;
+			}
+
+			._p#{str-slice($side, 0, 1)}-md-#{$i} {
+				padding-#{$side}: #{$i}rem !important;
+			}
+
+			._py-md-#{$i} {
+				padding-top: #{$i}rem !important;
+				padding-bottom: #{$i}rem !important;
+			}
+
+			._px-md-#{$i} {
+				padding-left: #{$i}rem !important;
+				padding-right: #{$i}rem !important;
+			}
+		}
+	}
+}
+
+@for $i from 0 through 50 {
+	@each $side in $sides {
+		@include media(">=desktop-md") {
+			._m#{str-slice($side, 0, 1)}-lg-#{$i} {
+				margin-#{$side}: #{$i}rem !important;
+			}
+
+			._p#{str-slice($side, 0, 1)}-lg-#{$i} {
+				padding-#{$side}: #{$i}rem !important;
+			}
+
+			._py-lg-#{$i} {
+				padding-top: #{$i}rem !important;
+				padding-bottom: #{$i}rem !important;
+			}
+
+			._px-lg-#{$i} {
+				padding-left: #{$i}rem !important;
+				padding-right: #{$i}rem !important;
+			}
+		}
+	}
+}
+
+$base-color: #036;
+@for $i from 1 through 3 {
+	ul li:nth-child(3n + #{$i}) {
+		// background-color: lighten($base-color, $i * 5%);
+	}
+}

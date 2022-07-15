@@ -109,3 +109,31 @@ $error-bg-color: lighten($error-color, 35%);
 
 $form-col-gutter: 15px;
 $form-row-margin: $form-col-gutter * 1.5;
+
+$colors: (
+	"white": #ffffff,
+	"black": #161613,
+	"brand": $brand-color,
+	"brand-dark": darken($brand-color, 10%),
+	"brand-light": lighten($brand-color, 10%),
+	"accent": $accent-color,
+	"accent-dark": darken($accent-color, 10%),
+	"accent-light": lighten($accent-color, 10%),
+	"text": #161613,
+	"text-secondary": #646464,
+	"caption": #b0aeae,
+	"border": #dddddd,
+	"background": #F8F8F7,
+);
+
+@function HexToRGB($hex) {
+	@return red($hex), green($hex), blue($hex);
+}
+
+@function cl($name, $opacity: false) {
+	@if $opacity {
+		@return rgba(var(--color-#{unquote($name)}--rgb), $opacity);
+	} @else {
+		@return var(--color-#{unquote($name)});
+	}
+}

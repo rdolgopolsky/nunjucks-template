@@ -26,6 +26,13 @@
 	// --secondary-color
 	// --add-color (additional)
 
+	@if $colors {
+		@each $key, $value in $colors {
+			--color-#{$key}: #{$value};
+			--color-#{$key}--rgb: #{HexToRGB($value)};
+		}
+	}
+
 	// --- Animation
 	--animation-duration: 0.3s;
 	--animation-timing-function: ease;
