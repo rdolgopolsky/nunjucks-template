@@ -53,8 +53,6 @@ function initSmartMenu() {
 }
 
 
-
-
 // Initialize video background Progress bar
 function animate(cb, duration) {
 	const fps = 60;
@@ -80,6 +78,7 @@ function animate(cb, duration) {
 
 	requestAnimationFrame(loop);
 }
+
 function initVideoBGProgress() {
 	let videoPlayer = document.querySelector(".section-bg"),
 		video = videoPlayer.querySelector(".video"),
@@ -259,6 +258,28 @@ function initQuantity() {
 		input.value = value;
 	});
 
+}
+
+function initScrollHeader() {
+	let scrollPos = 0;
+
+	$(window).scroll(function () {
+
+		let currentScrollPos = $(this).scrollTop();
+		let header = $(".page-header");
+
+		if (currentScrollPos > scrollPos) {
+			if (!header.hasClass("_fixed")) {
+				header.addClass("_fixed");
+			}
+		} else {
+			if (header.hasClass("_fixed")) {
+				header.removeClass("_fixed");
+			}
+		}
+
+		scrollPos = currentScrollPos;
+	});
 }
 
 //-------- -------- -------- --------

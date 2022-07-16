@@ -20,9 +20,9 @@
 	--accent-color-dark: #{darken($accent-color, 15%)};
 	--accent-color-light: #{darken($accent-color, 15%)};
 
-	--base-text-color: #333333;
-	--base-link-color: var(--brand-color);
-	--h1-h6-color: var(--base-text-color);
+	--base-text-color: var(--color-text);
+	--base-link-color: var(--color-brand);
+	--h1-h6-color: var(--color-text);
 	// --secondary-color
 	// --add-color (additional)
 
