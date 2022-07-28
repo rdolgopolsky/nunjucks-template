@@ -31,12 +31,12 @@ $button-hover-darken-persent: 15% !default;
 //
 
 @mixin button-variant(
-  $background: var(--accent-color),
+  $background: var(--color-accent),
   $color: color-yiq($background),
   $border: $background,
-  $hover-background: var(--accent-color-dark),
+  $hover-background: var(--color-accent-dark),
   $hover-color: color-yiq($hover-background),
-  $hover-border: var(--accent-color-dark)
+  $hover-border: var(--color-accent-dark),
 ) {
   color: $color;
   background-color: $background;
@@ -50,7 +50,7 @@ $button-hover-darken-persent: 15% !default;
 }
 
 @mixin button-outline-variant(
-  $color: var(--accent-color),
+  $color: var(--color-accent),
   $color-hover: color-yiq($color),
   $hover-background: $color,
   $color-border: $color,
@@ -120,9 +120,9 @@ $button-hover-darken-persent: 15% !default;
   @include button-size(); // default
   //color button mixin $background | $color | $border | $hover-background | $hover-color | $hover-border
   @include button-variant(
-    var(--accent-color),
-    #fff,
-    var(--accent-color),
+    var(--color-accent),
+    var(--color-white),
+    var(--color-accent),
     transparent,
     var(--base-text-color)
   );
@@ -135,7 +135,7 @@ $button-hover-darken-persent: 15% !default;
 // If need outline button
 // .btn-outline{
 // 	//color outline-button mixin $color | $color-hover | $hover-background | $color-border | $hover-border
-// 	@include button-outline-variant(--accent-color);
+// 	@include button-outline-variant(--color-accent);
 // }
 
 //
@@ -158,13 +158,13 @@ $button-hover-darken-persent: 15% !default;
 //
 
 .btn-link {
-  color: var(--accent-color);
+  color: var(--color-accent);
   background-color: transparent;
   border-color: transparent;
   transition: all var(--animation-duration) var(--animation-timing-function);
 
   &:hover {
-    color: var(--accent-color-dark);
+    color: var(--color-accent-dark);
     text-decoration: none;
     background-color: transparent;
     border-color: transparent;

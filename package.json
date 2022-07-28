@@ -45,5 +45,13 @@
   ],
   "engines": {
     "node": "16.13.0"
+  },
+  "dependencies": {
+    "include-media": "^1.4.10",
+    "jcf": "^1.2.3",
+    "jquery": "^3.6.0",
+    "normalize.css": "^8.0.1",
+    "swiper": "^8.3.1",
+    "virtual-select-plugin": "^1.0.31"
   }
 }

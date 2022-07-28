@@ -1,4 +1,4 @@
-@import "vendors/include-media";
+@import "include-media/dist/include-media";
 @import "base/variables";
 
 :root {
@@ -46,22 +46,12 @@
 	}
 
 	// Form elements styling
-	--input-color: #{$input-color};
-	--input-placeholder-color: #{$input-placeholder-color};
-	--input-bg-color: #{$input-bg-color};
 	--input-radius: #{$input-radius};
-	--input-border-color: #{$input-border-color};
-	--input-focus-border-color: #{$input-focus-border-color};
 
-	--form-theme-color: #{$form-theme-color};
 	--checkbox-size: #{$checkbox-size};
 	--radio-size: #{$radio-size};
 
 	--label-fz: #{$label-fz};
-	--label-color: #{$label-color};
-
-	--error-color: #{$error-color};
-	--error-bg-color: #{$error-bg-color};
 
 	--form-col-gutter: #{$form-col-gutter};
 	--form-row-margin: #{$form-row-margin};

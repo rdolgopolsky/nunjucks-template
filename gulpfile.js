@@ -1,4 +1,4 @@
-const {src,dest,parallel,series,watch} = require('gulp');
+const {src, dest, parallel, series, watch} = require('gulp');
 const del = require('del');
 const newer = require('gulp-newer');
 const plumber = require('gulp-plumber');
@@ -24,7 +24,6 @@ const bsr = function reload(cb) {
 	browserSync.reload();
 	cb();
 }
-
 
 
 // ====================
@@ -246,32 +245,33 @@ function cleanBuild(cb) {
 	del.sync(v.build.clean, {force: true})
 	cb()
 }
+
 // If need make some task global - just use exports this task
 // exports.cleanBuild = cleanBuild;
 
 // fonts file build version project
 function fontsBuild(cb) {
 	src(v.src.fonts)
-		.pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(newer(v.build.fonts))
 		.pipe(dest(v.build.fonts))
-		cb()
+	cb()
 }
 
 // other file build version project
 function otherBuild(cb) {
 	src(v.src.other)
-	.pipe(newer(v.build.other))
-	.pipe(dest(v.build.other))
+		.pipe(newer(v.build.other))
+		.pipe(dest(v.build.other))
 	cb()
 }
 
 // html file build version
 function htmlBuild() {
 	return src(v.src.html)
-	.pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(rigger())
-		.pipe(frontMatter({ property: 'data' }))
+		.pipe(frontMatter({property: 'data'}))
 		.pipe(nunjucksRender())
 		.pipe(imgRetina(v.config.imgRetina))
 		.pipe(dest(v.build.html))
@@ -281,36 +281,40 @@ function htmlBuild() {
 // image optimize build version project
 function imageBuild(cb) {
 	src(v.src.img)
-		.pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(newer(v.build.img))
 		.pipe(dest(v.build.img))
-		cb()
+	cb()
 }
 
 // js Modules build version project
 function jsModulesBuild() {
 	return src(v.src.jsModules)
-	.pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
-	.pipe(webpackStream(v.config.webpackConf))
-	.pipe(dest(v.build.js))
+		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+		.pipe(webpackStream(v.config.webpackConf))
+		.pipe(dest(v.build.js))
 }
 
 // js file build version project
 function jsBuild() {
 	return src(v.src.js)
-	.pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
-	.pipe(rigger())
-	.pipe(dest(v.build.js))
+		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+		.pipe(rigger())
+		.pipe(dest(v.build.js))
 }
+
 // scss build version project
 function cssBuild() {
 	return src(v.src.style)
-		.pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(sourcemaps.init())
-		.pipe(sass({outputStyle: 'expanded'}))
+		.pipe(sass({
+			outputStyle: 'expanded',
+			includePaths: ['node_modules']
+		}))
 		.pipe(sourcemaps.write())
 		.pipe(dest(v.build.style))
-		.pipe(browserSync.reload({stream:true}))
+		.pipe(browserSync.reload({stream: true}))
 }
 
 // watch task with DEV and init server
@@ -347,11 +351,11 @@ function watchServBuild() {
 	))
 
 	watch(v.watch.delet).on('unlink', function (filepath) {
-    var filePathFromSrc = path.relative(path.resolve(folder.src), filepath);
-    var destFilePath = path.resolve(folder.build, filePathFromSrc);
+		var filePathFromSrc = path.relative(path.resolve(folder.src), filepath);
+		var destFilePath = path.resolve(folder.build, filePathFromSrc);
 		console.log("You delet this file - " + destFilePath);
-    del.sync(destFilePath);
-  });
+		del.sync(destFilePath);
+	});
 }
 
 
@@ -381,24 +385,24 @@ function cleanProd(cb) {
 // fonts file build version project
 function fontsProd(cb) {
 	src(v.src.fonts)
-		.pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(dest(v.dist.fonts))
-		cb()
+	cb()
 }
 
 // other file build version project
 function otherProd(cb) {
 	src(v.src.other)
 		.pipe(dest(v.dist.other))
-		cb()
+	cb()
 }
 
 //html file production version
 function htmlProd() {
 	return src(v.src.html)
-		.pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(rigger())
-		.pipe(frontMatter({ property: 'data' }))
+		.pipe(frontMatter({property: 'data'}))
 		.pipe(nunjucksRender())
 		.pipe(imgRetina(v.config.imgRetina))
 		.pipe(htmlbeautify(v.config.optionsHtmlBeautify))
@@ -408,15 +412,15 @@ function htmlProd() {
 //image optimize build version project
 function imageProd(cb) {
 	src(v.src.img)
-		.pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(imagemin([
-			imageminPngquant({quality: [0.7, 0.8]}),
-			imageminMozjpeg({progressive: true})
-		],
-		//for more detailed information output
-		{ verbose: true,}))
+				imageminPngquant({quality: [0.7, 0.8]}),
+				imageminMozjpeg({progressive: true})
+			],
+			//for more detailed information output
+			{verbose: true,}))
 		.pipe(dest(v.dist.img))
-		cb()
+	cb()
 }
 
 // js Modules dist version project
@@ -424,15 +428,15 @@ function jsModulesProd() {
 	v.config.webpackConf.mode = "production";
 	v.config.webpackConf.devtool = false;
 	return src(v.src.jsModules)
-	.pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
-	.pipe(webpackStream(v.config.webpackConf))
-	.pipe(dest(v.dist.js))
+		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+		.pipe(webpackStream(v.config.webpackConf))
+		.pipe(dest(v.dist.js))
 }
 
 // js file Prod version project
 function jsProd() {
 	return src(v.src.js)
-		.pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(rigger())
 		.pipe(dest(v.dist.js))
 }
@@ -449,11 +453,11 @@ function cssProd() {
 		pcsscomb(v.config.cssComb)
 	];
 	return src(v.src.style)
-		.pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(sass())
 		.pipe(postcss(postcssPlugins))
 		.pipe(dest(v.dist.style))
-		.pipe(browserSync.reload({stream:true}))
+		.pipe(browserSync.reload({stream: true}))
 }
 
 // watch task and init server on PROD mode
@@ -490,11 +494,11 @@ function watchServerProd() {
 	))
 
 	watch(v.watch.delet).on('unlink', function (filepath) {
-    var filePathFromSrc = path.relative(path.resolve(folder.src), filepath);
-    var destFilePath = path.resolve(folder.dist, filePathFromSrc);
+		var filePathFromSrc = path.relative(path.resolve(folder.src), filepath);
+		var destFilePath = path.resolve(folder.dist, filePathFromSrc);
 		console.log("You delet this file - " + destFilePath);
-    del.sync(destFilePath);
-  });
+		del.sync(destFilePath);
+	});
 }
 
 // create common task for PROD mode

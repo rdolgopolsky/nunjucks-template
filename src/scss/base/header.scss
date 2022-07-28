@@ -1,27 +1,165 @@
-.header-menu-wrapper {
-	color: var(--base-text-color);
-	position: relative;
-	padding: 15px 0;
-	z-index: 2;
-	box-shadow: 2px 0px 3px rgba(0, 0, 0, 0.2);
-
-	.container {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-end;
-
-		@include media("<=tablet") {
-			align-items: center;
-		}
-	}
-}
-
 .page-header {
-	.logo {
-		display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 50;
 
-		svg {
-			width: 160px;
+	&-logo {
+		display: block;
+	}
+
+	ul{
+		margin-bottom: 0;
+	}
+
+	&-menu {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		justify-content: flex-end;
+		gap: 2rem;
+		font-size: 18px;
+		line-height: 1.5;
+		font-weight: normal;
+		color: var(--color-text);
+
+		li {
+			position: relative;
+
+			a {
+				color: var(--color-brand);
+
+				&:hover {
+				}
+			}
+
+			& > ul {
+				position: absolute;
+				top: 100%;
+				left: 50%;
+				transform: translateX(-50%);
+				max-height: 0;
+				overflow: hidden;
+				background-color: var(--color-white);
+				min-width: 20rem;
+
+				li{
+					&:hover{
+						ul{
+							max-height: 100vh;
+						}
+					}
+				}
+
+				&:not(.mega-menu) {
+					ul {
+						top: 0;
+						left: 100%;
+						transform: none;
+						overflow: hidden;
+					}
+				}
+			}
+
+			&._has-mega-menu {
+				position: static;
+
+				ul {
+					width: 100%;
+				}
+			}
+
+			&:hover {
+				& > ul {
+					padding: 1rem;
+					overflow: visible;
+					max-height: calc(100vh - var(--header-height));
+				}
+			}
+		}
+	}
+
+	&-nav-opener {
+		display: none;
+		width: 30px;
+		height: 30px;
+		position: relative;
+		background-color: transparent;
+		outline: none;
+		border: none;
+
+		@include media("<desktop") {
+			display: block;
+		}
+
+		&:before,
+		&:after,
+		span {
+			background-color: var(--color-text);
+			border-radius: 3px;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			right: 0;
+			height: 3px;
+			margin-top: -1.5px;
+			transition: all 0.2s linear;
+		}
+
+		&:before,
+		&:after {
+			content: "";
+			top: 15%;
+		}
+
+		&:after {
+			top: 85%;
+		}
+
+		&:hover {
+			opacity: 0.9;
+		}
+	}
+
+	&-wrapper {
+		color: var(--color-text);
+		position: relative;
+		padding: 15px 0;
+		z-index: 2;
+		box-shadow: 2px 0px 3px cl(dark, 0.1);
+
+		.container {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-end;
+
+			@include media("<=tablet") {
+				align-items: center;
+			}
 		}
 	}
 }
+
+.nav-active {
+	overflow: hidden;
+
+	.page-header {
+		&-nav-opener {
+			span {
+				opacity: 0;
+			}
+
+			&:before,
+			&:after {
+				transform: rotate(45deg);
+				top: 50%;
+			}
+
+			&:after {
+				transform: rotate(-45deg);
+			}
+		}
+	}
+}
+

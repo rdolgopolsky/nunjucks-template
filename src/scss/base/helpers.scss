@@ -60,6 +60,16 @@ $sides: (top, bottom, left, right);
 		}
 	}
 
+	._my-#{$i} {
+		margin-top: #{$i}rem !important;
+		margin-bottom: #{$i}rem !important;
+	}
+
+	._mx-#{$i} {
+		margin-left: #{$i}rem !important;
+		margin-right: #{$i}rem !important;
+	}
+
 	._py-#{$i} {
 		padding-top: #{$i}rem !important;
 		padding-bottom: #{$i}rem !important;
@@ -80,6 +90,16 @@ $sides: (top, bottom, left, right);
 
 			._p#{str-slice($side, 0, 1)}-md-#{$i} {
 				padding-#{$side}: #{$i}rem !important;
+			}
+
+			._my-md-#{$i} {
+				margin-top: #{$i}rem !important;
+				margin-bottom: #{$i}rem !important;
+			}
+
+			._mx-md-#{$i} {
+				margin-left: #{$i}rem !important;
+				margin-right: #{$i}rem !important;
 			}
 
 			._py-md-#{$i} {
@@ -104,6 +124,16 @@ $sides: (top, bottom, left, right);
 
 			._p#{str-slice($side, 0, 1)}-lg-#{$i} {
 				padding-#{$side}: #{$i}rem !important;
+			}
+
+			._my-lg-#{$i} {
+				margin-top: #{$i}rem !important;
+				margin-bottom: #{$i}rem !important;
+			}
+
+			._mx-lg-#{$i} {
+				margin-left: #{$i}rem !important;
+				margin-right: #{$i}rem !important;
 			}
 
 			._py-lg-#{$i} {
