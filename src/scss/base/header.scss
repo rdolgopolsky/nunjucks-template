@@ -9,7 +9,7 @@
 		display: block;
 	}
 
-	ul{
+	ul {
 		margin-bottom: 0;
 	}
 
@@ -44,9 +44,9 @@
 				background-color: var(--color-white);
 				min-width: 20rem;
 
-				li{
-					&:hover{
-						ul{
+				li {
+					&:hover {
+						ul {
 							max-height: 100vh;
 						}
 					}
@@ -132,7 +132,7 @@
 		.container {
 			display: flex;
 			justify-content: space-between;
-			align-items: flex-end;
+			align-items: center;
 
 			@include media("<=tablet") {
 				align-items: center;
