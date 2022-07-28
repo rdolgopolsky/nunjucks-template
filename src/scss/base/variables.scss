@@ -92,7 +92,7 @@ $input-padding-x: map-get(
 // Form elements styling
 $input-color: #4b4a4a;
 $input-placeholder-color: lighten($input-color, 20%);
-$input-bg-color: white;
+$input-bg-color: #ffffff;
 $input-radius: 3px;
 $input-border-color: #eee;
 $input-focus-border-color: darken($input-border-color, 13%);
@@ -105,7 +105,6 @@ $label-fz: 13px;
 $label-color: $input-color;
 
 $error-color: #e04562;
-$error-bg-color: lighten($error-color, 35%);
 
 $form-col-gutter: 15px;
 $form-row-margin: $form-col-gutter * 1.5;
@@ -113,6 +112,7 @@ $form-row-margin: $form-col-gutter * 1.5;
 $colors: (
 	"white": #ffffff,
 	"black": #161613,
+	"dark": #000000,
 	"brand": $brand-color,
 	"brand-dark": darken($brand-color, 10%),
 	"brand-light": lighten($brand-color, 10%),
@@ -122,8 +122,14 @@ $colors: (
 	"text": #161613,
 	"text-secondary": #646464,
 	"caption": #b0aeae,
-	"border": #dddddd,
+	"border": $input-border-color,
+	"input": $input-color,
+	"input-bg": $input-bg-color,
+	"input-placeholder": $input-placeholder-color,
 	"background": #F8F8F7,
+	"error": $error-color,
+	"error-bg": lighten($error-color, 35%),
+	"label": $label-color,
 );
 
 @function HexToRGB($hex) {

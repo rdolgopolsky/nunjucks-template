@@ -5,18 +5,77 @@ title: Don't forget to change tittle - for this page
 {% include 'src/template/head.html' %}
 
 <body>
-	<div class="wrapper">
-		{% include 'src/template/header.html' %}
-		<main class="main">
+<div class="wrapper">
+	{% include 'src/template/header.html' %}
+	<main class="main">
 
-			{{ mac.headline({
-				title: "Hedaline title",
-				descr: "This is H1 description"
-			}) }}
+		<section class="section _py-5">
+			<div class="container">
+				<h1>This is a headline</h1>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi culpa dolor ex hic laborum maiores quidem quisquam similique velit.
+				</p>
 
-		</main>
-		{% include 'src/template/footer.html' %}
-	</div>
-	{% include 'src/template/includes.html' %}
+				<select name="" id="" placeholder="Select Option"
+				        data-search="true">
+					<option value="1">Option 1</option>
+					<option value="2">Option 2</option>
+					<option value="3">Option 3</option>
+					<option value="4">Option Four</option>
+					<option value="5">Option Five</option>
+
+				</select>
+
+			</div>
+		</section>
+
+		<section>
+			<div class="container">
+				<div class="swiper swiper-container _my-5">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">Slide 1</div>
+						<div class="swiper-slide">Slide 2</div>
+						<div class="swiper-slide">Slide 3</div>
+						<div class="swiper-slide">Slide 4</div>
+						<div class="swiper-slide">Slide 5</div>
+						<div class="swiper-slide">Slide 6</div>
+						<div class="swiper-slide">Slide 7</div>
+						<div class="swiper-slide">Slide 8</div>
+						<div class="swiper-slide">Slide 9</div>
+					</div>
+					<div class="swiper-button-nex swiper-button"></div>
+					<div class="swiper-button-prev swiper-button"></div>
+					<div class="swiper-pagination"></div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section _py-10">
+			<div class="container">
+				<div class="quantity">
+					<input type="number" value="1" min="1">
+				</div>
+
+
+				<h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam dolores eligendi illo inventore,
+					reiciendis tempore? Aliquid consectetur, cupiditate debitis earum eligendi expedita maxime molestiae quam
+					sapiente, temporibus vel vitae voluptatibus?</h2>
+
+				<h1 class="news-elem-title">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, illum?
+				</h1>
+				<p>
+					lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, illum?
+				</p>
+
+				<div class="counter">10000</div>
+			</div>
+		</section>
+
+
+	</main>
+	{% include 'src/template/footer.html' %}
+</div>
+{% include 'src/template/includes.html' %}
 </body>
 </html>
